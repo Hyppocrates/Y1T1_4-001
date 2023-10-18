@@ -12,6 +12,7 @@ public class ThirdPersonCamera : MonoBehaviour
     public float sensitivity = 2.0f;
 
     private float rotationX = 0.0f;
+    private float rotationY = 0.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -43,13 +44,13 @@ public class ThirdPersonCamera : MonoBehaviour
         
         // Update the camera's vertical rotation (pitch) based on mouse input
         rotationX -= mouseY;
+        rotationY -= mouseX;
 
         // Clamp the vertical rotation
-        rotationX = Mathf.Clamp(rotationX, -90, 90);
-
-        transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        target.Rotate(Vector3.up * mouseX);
-
+        rotationX = Mathf.Clamp(rotationX, 0, 90);
+        rotationY = Mathf.Clamp(rotationY, -90, 90);
+        transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+       
     }
 
     void FollowTarget()

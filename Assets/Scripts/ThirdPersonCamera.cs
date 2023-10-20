@@ -44,12 +44,14 @@ public class ThirdPersonCamera : MonoBehaviour
         
         // Update the camera's vertical rotation (pitch) based on mouse input
         rotationX -= mouseY;
-        rotationY -= mouseX;
+        rotationY += mouseX;
 
         // Clamp the vertical rotation
         rotationX = Mathf.Clamp(rotationX, 0, 90);
-        rotationY = Mathf.Clamp(rotationY, -90, 90);
+        rotationY = Mathf.Clamp(rotationY, -180, 180);
         transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        
+        
        
     }
 

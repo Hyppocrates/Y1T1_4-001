@@ -34,9 +34,5 @@ public class SimpleArrayExample : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
